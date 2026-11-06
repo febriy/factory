@@ -42,6 +42,10 @@ The engineering methods primarily come from [Matt Pocock's skills](https://githu
 
 The board reports tracker state; it does not verify completion or run workers. Write-through synchronization, execution claims/checkpoints, PR/check-based completion verification, and scheduling remain unbuilt. Harness assets still need a product-specific configuration and live pilot. No product integration, hook trust, branch protection, or automatic review setting is enabled by installation.
 
+## Next step
+
+When product integration is requested, configure the harness for one selected product and demonstrate a manual issue-to-reviewed-PR flow. Use that pilot to guide write-through synchronization, durable worker recovery, and completion verification. Scheduling follows reliable manual operation and requires an explicit request.
+
 ## Development
 
 ```bash

@@ -106,6 +106,4 @@ python3 -m unittest discover -s tests -v
 
 The 28 tests cover native parent/dependency semantics, malformed records, status conflicts, pagination, repository binding, cache preservation on failure, remembered filters, local locking, interrupted writes, offline rendering, and hostile issue text. These are adapter/CLI checks with fixtures. Separate read-only smoke checks confirmed repository lookup, pagination, an actual issue read and normalization, native dependency reads, and the expected no-parent response against the previously supplied public skill repository. That repository was not bound as a pilot target. Browser checks covered search, empty results, priorities, attention and cancelled views, issue details, keyboard dismissal, refresh help, and narrow/desktop layouts.
 
-## Next increment
-
-Implement write-through synchronization with a durable outbox and conflict handling. Then add approved goal publication, worker checkpoints and lifecycle management, and PR/check-based completion verification. A scheduled wake is configured only after manual sync and recovery work reliably and the user chooses the intended schedule.
+For planned work, see [the factory next step](../README.md#next-step).

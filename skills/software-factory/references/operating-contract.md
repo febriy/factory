@@ -1,15 +1,16 @@
 # Factory operating contract
 
-This is the factory's coordination layer, informed by the composition decisions in the Software Factory repository. The engineering methods remain in the installed upstream skills.
+These rules govern agent-led work today. They do not imply automatic enforcement; [README](../../../README.md#what-works) identifies the implemented runtime. Engineering methods remain in the installed upstream skills.
 
 ## Record ownership
 
 - GitHub Issues own shared requirements, priority, parent links, native prerequisites, approval/evidence references, and shared workflow status.
 - PRs, accepted commits, required checks, and merge state own integration evidence.
-- Local runtime JSON owns the active run, worktree, checkpoint, cached remote versions, pending operations, and last successful sync. Keep credentials out of snapshots.
+- Local board JSON owns cached issues, repository binding, query scope, and refresh state. Keep credentials out of snapshots.
+- Hook-local state, when enabled in a product, owns the armed baseline and repair budget. Its mechanics are in the [quality-harness reference](quality-harness.md).
 - HTML and Markdown board views are projections with a visible refresh timestamp. A view does not independently authorize execution.
 
-When no reliable runtime helper exists, keep requested manual checkpoints and confirm remote writes directly. Do not describe loose files or issue labels as an atomic claim or an idempotent outbox. Building these guarantees is separate implementation work.
+Active-run records, worker claims, durable pending operations, and automatic restart recovery belong to the planned controller. Until it exists, keep manual worktree/checkpoint records and confirm remote writes directly.
 
 ## Approvals and developer involvement
 
@@ -39,10 +40,12 @@ Done requires accepted behavior and the agreed integration evidence. Recheck aft
 
 ## Resume and defer
 
-Refresh remote state and inspect the recorded run handle, checkpoint, and worktree before retrying. Verify whether the worker is actually running; an old timestamp or file is insufficient. Preserve unfinished work. If remote state is unavailable, show stale data and defer new claims.
+Refresh remote state and inspect the saved worktree and manual checkpoint before retrying. If a process was started, verify whether it is actually running; an old timestamp or file is insufficient. Preserve unfinished work. If remote state is unavailable, show stale data and defer new claims.
 
 After an ambiguous remote write, search for its stable task/operation identity before retrying. Use the deterministic adapter once implemented; until then verify the result manually instead of claiming deduplication.
 
-Use bounded repair attempts and checkpoint on usage limits or unavailable dependencies. The reusable harness requests at most three repair continuations per explicitly armed task/session, preserving the count across changing turn IDs and successful intermediate checks. At the limit, hand off the failure and remaining action. Stopping, disarming, or an unavailable hook never establishes acceptance. Hooks own only local verification state, not factory task status or worker claims.
+Use bounded repair attempts; for harness-enabled work, follow the [harness repair policy](quality-harness.md#run-an-approved-task). Checkpoint on usage limits or unavailable dependencies. At the repair limit, hand off the failure and remaining action. Stopping, disarming, or an unavailable hook never establishes acceptance.
 
-A desktop prompt can guide a time budget; strict process termination requires a worker launcher. Scheduled wakes must reconcile before starting another task, and scheduling itself requires a user request.
+## Future runtime enforcement
+
+The planned controller must enforce these contracts using durable run state and observed process, PR, and check results. Its acceptance criteria are in [skill assembly](../../../docs/skill-assembly.md#why-runtime-code-remains-necessary). A desktop prompt alone cannot enforce process termination. Any future scheduling requires a user request and reconciliation before new work.
