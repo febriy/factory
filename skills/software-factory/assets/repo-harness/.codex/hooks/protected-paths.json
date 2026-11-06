@@ -1,0 +1,24 @@
+{
+  "always": [
+    "**/.env*",
+    "**/tests/scenarios/**",
+    "**/package-lock.json",
+    "**/npm-shrinkwrap.json",
+    "**/yarn.lock",
+    "**/pnpm-lock.yaml",
+    "**/bun.lock",
+    "**/bun.lockb",
+    "**/poetry.lock",
+    "**/uv.lock",
+    "**/Pipfile.lock",
+    "**/Cargo.lock",
+    "**/Gemfile.lock",
+    "**/composer.lock"
+  ],
+  "existing": [
+    "**/migrations/**",
+    ".codex/hooks.json",
+    ".codex/hooks/**",
+    "scripts/agent-check.sh"
+  ]
+}

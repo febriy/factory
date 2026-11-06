@@ -1,0 +1,28 @@
+{
+  "description": "Factory harness template v1. Review and configure before trusting; inert until copied into a product.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|apply_patch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/factory_harness.py\" pre-tool",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/factory_harness.py\" stop",
+            "timeout": 150
+          }
+        ]
+      }
+    ]
+  }
+}

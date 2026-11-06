@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "inspected_on": "2026-10-21",
+  "upstream": {
+    "repository": "mattpocock/skills",
+    "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+    "license": "MIT",
+    "license_file": "third_party/mattpocock-skills.LICENSE"
+  },
+  "installation_method": "skill-installer/install-skill-from-github.py at pinned commit; manual updates",
+  "installed_upstream_count": 19,
+  "installed_upstream": [
+    {
+      "name": "code-review",
+      "upstream_path": "skills/engineering/code-review",
+      "installed_path": "$CODEX_HOME/skills/code-review",
+      "upstream_files_sha256": {
+        "SKILL.md": "09eb147f793e4647949edd32dbad278f0554dfb56e0d46b699cd4c2c55bf0357",
+        "agents/openai.yaml": "8229ca854e11dc8e6aef2131ee03f31fb1561cf905fab9ccc325180cf3331352"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "codebase-design",
+      "upstream_path": "skills/engineering/codebase-design",
+      "installed_path": "$CODEX_HOME/skills/codebase-design",
+      "upstream_files_sha256": {
+        "DEEPENING.md": "f3dd099ce99289bd213914d8ee3e2429b78309c3957ca4583f7659551b1d53c1",
+        "DESIGN-IT-TWICE.md": "52b52e75655a27aea59c6966b410bac82448968ad46ef1ebb9f07c274e3ae010",
+        "SKILL.md": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+        "agents/openai.yaml": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "diagnosing-bugs",
+      "upstream_path": "skills/engineering/diagnosing-bugs",
+      "installed_path": "$CODEX_HOME/skills/diagnosing-bugs",
+      "upstream_files_sha256": {
+        "SKILL.md": "849198df88cdb65fd0d97236604c1fca7ff2f22d2f705f9724a800d0266b118d",
+        "agents/openai.yaml": "3e430dbe4334a87597488c060cb3dc3786bb00c9182877d6f5ec41f62490e90b",
+        "scripts/hitl-loop.template.sh": "35103539fc36873eea36074769ad454f9379d6fc8b2dc0e26ce987fd3bfe5503"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "domain-modeling",
+      "upstream_path": "skills/engineering/domain-modeling",
+      "installed_path": "$CODEX_HOME/skills/domain-modeling",
+      "upstream_files_sha256": {
+        "ADR-FORMAT.md": "944c92aa790e8fbdc9199640b170979abb8a34ba8d0fe18c2a01a63bce140ca0",
+        "GLOSSARY-FORMAT.md": "21dcc40cdec8e151a829b98ab1517c1867bc444e3665134a98c6983411996801",
+        "SKILL.md": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+        "agents/openai.yaml": "f6bf2aa996c6e6f53fdd0708e18a0d16a56aed8322cca59fedbe3c0d2c75f06b"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "implement-spec",
+      "upstream_path": "skills/engineering/implement-spec",
+      "installed_path": "$CODEX_HOME/skills/implement-spec",
+      "upstream_files_sha256": {
+        "SKILL.md": "7a22dd2e60b8fcece478ced9d2533582adf3520d695acd3ab715341535c9e56d",
+        "agents/openai.yaml": "fd41efb42c60c96320d6531be7e4bf15cbf5518cd652d57dff27ccffa46988e9"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "implement",
+      "upstream_path": "skills/engineering/implement",
+      "installed_path": "$CODEX_HOME/skills/implement",
+      "upstream_files_sha256": {
+        "SKILL.md": "483bdc4ccf4ac31d86ac7beeaa0d0db80313e71e120bb8c59b3196ae5decd53d",
+        "agents/openai.yaml": "8970a8596ade0c28ab427f41a4ea242d6bdf6186c59ebf55e1238dbecaab79dc"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "upstream_path": "skills/engineering/improve-codebase-architecture",
+      "installed_path": "$CODEX_HOME/skills/improve-codebase-architecture",
+      "upstream_files_sha256": {
+        "HTML-REPORT.md": "581e8bb5a521e46bbda8ca7e19b15948bed882187108092ebb90c62513b77528",
+        "SKILL.md": "552240a5ab5cec6b67c15dd1ad6e9f6962b1bca6ce870059a8c2713760c20392",
+        "agents/openai.yaml": "c8cb20f68ebf0edb4e497bc11ae5fcaa196004e661cd189015b04f4109ced7f1"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "pr",
+      "upstream_path": "skills/engineering/pr",
+      "installed_path": "$CODEX_HOME/skills/pr",
+      "upstream_files_sha256": {
+        "CREDITS.md": "a7a087127665d7298a72280ef6e19c41ad8404523712a788c8dc3ab414bc2497",
+        "SKILL.md": "ab63f1cf78647389edcd386c9427c5dfca27ed2836930c24773ffee834c19bcd",
+        "agents/openai.yaml": "2295b586624db4ef546f3fd4695492f039d941a46d8a1593a702ce3ca511b8ad"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "prototype",
+      "upstream_path": "skills/engineering/prototype",
+      "installed_path": "$CODEX_HOME/skills/prototype",
+      "upstream_files_sha256": {
+        "LOGIC.md": "f61c7d249e786a79ef289018901c348271e1798dd0b0bc5607b5c6f4d4a01ab9",
+        "SKILL.md": "714de632d116bb73f65cdb5a882db15b9369a6713b9a47c0fad827848f0bfbe3",
+        "UI.md": "723211e878acbc7b6ff09755263f3295cde724ba902ff0064da41eed51d45ad3",
+        "agents/openai.yaml": "5af65e43ab41a350436697b81e27b7f848d36782043b73c322bb2c9fa9cc55dc"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "research",
+      "upstream_path": "skills/engineering/research",
+      "installed_path": "$CODEX_HOME/skills/research",
+      "upstream_files_sha256": {
+        "SKILL.md": "985569f15739c713d6784887c3d186d4ef9ac85bec5ad9c068d25bf0739928e4",
+        "agents/openai.yaml": "9b4c470d63221c1f68f22df70b83e2f12401b317babe0d1b7b5f24a974474d0d"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "retro",
+      "upstream_path": "skills/engineering/retro",
+      "installed_path": "$CODEX_HOME/skills/retro",
+      "upstream_files_sha256": {
+        "SKILL.md": "33fbc28568e3146f20fd908b12998bc0ab30aa4f4c87288199a40793efa94696",
+        "agents/openai.yaml": "cb6fb9d7e6b4be5975f41f6def1dd00a1255bad5d9b02696b124c924a8b8745c"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "setup-matt-pocock-skills",
+      "upstream_path": "skills/engineering/setup-matt-pocock-skills",
+      "installed_path": "$CODEX_HOME/skills/setup-matt-pocock-skills",
+      "upstream_files_sha256": {
+        "SKILL.md": "f148858ffb7f63c03c06fca06e6fdb1d91a35c6b293244b8fdfacd5f4cc028c4",
+        "agents/openai.yaml": "9527de0110541c45712319025155aeab8dc7d77c6ed6e5e83271bab1851ab939",
+        "domain.md": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+        "issue-tracker-github.md": "f0653fe106dd8ee7b33be27bd7fe3104b40555896cb45f61997aed20467020c3",
+        "issue-tracker-gitlab.md": "591a9e7057382aaccdfbed3f7ea3f2ad07e0cd29f012d18b82ee4e485fd81e24",
+        "issue-tracker-local.md": "7dcda20a2eb4bdc89b95d1143423c0691309921cadae3132e6424f371030506e",
+        "triage-labels.md": "ae512af838c78b8750471c42cd2b20fa32319553e61d84c9a23d171b40ce14aa"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "tdd",
+      "upstream_path": "skills/engineering/tdd",
+      "installed_path": "$CODEX_HOME/skills/tdd",
+      "upstream_files_sha256": {
+        "SKILL.md": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+        "agents/openai.yaml": "ea6f01cf1b8c06a4b0f5b649d74b1b8ce8685e72af1b38d70d877693e092af0b",
+        "mocking.md": "3ceb807fdf4a47d6a93d4d9a891e5ba6d362a6247bd08adc451feebfc17361ef",
+        "tests.md": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "to-spec",
+      "upstream_path": "skills/engineering/to-spec",
+      "installed_path": "$CODEX_HOME/skills/to-spec",
+      "upstream_files_sha256": {
+        "SKILL.md": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+        "agents/openai.yaml": "1c5b4d1e3d8e52287ef19cc2742fdbbfae1914ac75d33af3e4c8174f08cc55bb"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "to-tickets",
+      "upstream_path": "skills/engineering/to-tickets",
+      "installed_path": "$CODEX_HOME/skills/to-tickets",
+      "upstream_files_sha256": {
+        "SKILL.md": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
+        "agents/openai.yaml": "21bc6215fffcd7614e9f772bb1760e87cc5fc7dcc707e7d282bc9414267a6090"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "triage",
+      "upstream_path": "skills/engineering/triage",
+      "installed_path": "$CODEX_HOME/skills/triage",
+      "upstream_files_sha256": {
+        "AGENT-BRIEF.md": "7f5f87fed3033df1b06e083c480f3e847b1fbb0647746b8a4c6a50f9f26ef44f",
+        "OUT-OF-SCOPE.md": "1fbf9b432130c6380aa65813b55553cfda150309b27c595e183f8e335b8a190d",
+        "SKILL.md": "917b0baf74be583e74f110857ed45df2766617f75c00baf61fd136d7af515edf",
+        "agents/openai.yaml": "2e683717720cf456d165d0bb1a68bb600d0b6a8ccb61841c172e50d26f95351c"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "wayfinder",
+      "upstream_path": "skills/engineering/wayfinder",
+      "installed_path": "$CODEX_HOME/skills/wayfinder",
+      "upstream_files_sha256": {
+        "SKILL.md": "9be7b478c389605a24517d27752f278933588da97a1b5921b165f455edf4c5b7",
+        "agents/openai.yaml": "88bc81a11a6d52ac67aeaa76b8b619e387020d47c5133a4dd4927fd15c4ad073"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "grilling",
+      "upstream_path": "skills/productivity/grilling",
+      "installed_path": "$CODEX_HOME/skills/grilling",
+      "upstream_files_sha256": {
+        "SKILL.md": "befdff1e27a1dfe2a294d5871169ac1afe16d983911daa4f32627514a48c1e15",
+        "agents/openai.yaml": "1411d7df7d99b7e621a1ff8283c8133cc2464be63d064e52d8ce169c6800ee9b"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "name": "writing-for-agents",
+      "upstream_path": "skills/productivity/writing-for-agents",
+      "installed_path": "$CODEX_HOME/skills/writing-for-agents",
+      "upstream_files_sha256": {
+        "SKILL-MECHANICS.md": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+        "SKILL.md": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a",
+        "agents/openai.yaml": "eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b"
+      },
+      "added_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    }
+  ],
+  "preserved_local": [
+    {
+      "name": "grill-with-docs",
+      "action": "preserved existing installation; not overwritten",
+      "files_sha256": {
+        "ADR-FORMAT.md": "f1f36cd3f8d3b6474ddd5855da4e233bfc4ae1a1c5024909ccf11871819a41b2",
+        "CONTEXT-FORMAT.md": "b8cc318f2a4285b530e908b6bc43901c3c5cd11100362636bbc4216639bef597",
+        "SKILL.md": "3e35025119ba03efe7983dfdec3c8b96918142e3978512f3c2bf66d428310c7e"
+      }
+    },
+    {
+      "name": "to-prd",
+      "action": "preserved existing installation; not overwritten",
+      "files_sha256": {
+        "SKILL.md": "b60e3805e361e4eabc6f3df48d305299e0fde64cb24b6e95443c01de907a2e7d"
+      }
+    },
+    {
+      "name": "to-issues",
+      "action": "preserved existing installation; not overwritten",
+      "files_sha256": {
+        "SKILL.md": "0e6a2973fa5bdf32570227c578f7e474d945dd9281615d31439664c3ef016fce"
+      }
+    }
+  ],
+  "custom_skill": {
+    "name": "software-factory",
+    "repository_path": "skills/software-factory",
+    "installed_path": "$CODEX_HOME/skills/software-factory",
+    "installation_method": "symlink to versioned local source"
+  },
+  "not_installed": [
+    {
+      "name": "ask-matt",
+      "reason": "factory skill handles routing for this workflow"
+    },
+    {
+      "name": "wizard",
+      "reason": "provisioning wizard outside current scope"
+    },
+    {
+      "name": "grill-with-docs",
+      "reason": "existing local copy preserved"
+    }
+  ],
+  "runtime_status": "Read-only GitHub snapshots and HTML board implemented; write-through sync, worker lifecycle/checkpoints, and scheduling pending.",
+  "validation": {
+    "validated_on": "2026-10-21",
+    "upstream_files_verified": 57,
+    "upstream_skills_verified": 19,
+    "supporting_relative_links": "all links outside fenced template/examples resolve",
+    "codex_invocation_metadata": "consistent with upstream human/model invocation choices",
+    "explicit_only_skills": [
+      "implement-spec",
+      "implement",
+      "improve-codebase-architecture",
+      "retro",
+      "setup-matt-pocock-skills",
+      "to-spec",
+      "to-tickets",
+      "triage",
+      "wayfinder"
+    ],
+    "custom_skill_quick_validate": "passed using isolated uv PyYAML environment",
+    "preserved_local_skills": "checksums unchanged during assembly",
+    "runtime_behavior": "Installation-time record. Runtime validation is documented in docs/run-the-board.md and tests/test_factory.py."
+  }
+}

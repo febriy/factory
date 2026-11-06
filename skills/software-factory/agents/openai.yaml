@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Factory"
+  short_description: "Assemble and run the personal Codex workflow"
+  default_prompt: "Use $software-factory to assemble the installed engineering skills and plan the next factory increment."

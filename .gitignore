@@ -1,0 +1,10 @@
+.factory/
+__pycache__/
+*.py[cod]
+.DS_Store
+# Personal workspace material is outside the factory distribution.
+apps/
+tests/test_book_*.py
+output/
+docs/research/
+third_party/replica-skill/
