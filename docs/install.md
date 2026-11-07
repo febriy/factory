@@ -1,19 +1,26 @@
 # Install the factory
 
-Supported environment: macOS or Linux, Python 3.9+, Git 2.31+, and Codex with skills support. The board also needs the GitHub CLI authenticated for the target repository. Python runtime code uses the standard library; there is no package installation step. Hooks additionally require a supported local Codex runtime and trust review.
+## Install from the repository marketplace
 
-## Clone and link the skill
+The skill lives in `skills/software-factory/SKILL.md`. Codex uses its `name` and `description` to discover it. [OpenAI skill format](https://learn.chatgpt.com/docs/build-skills)
+
+The repository's `plugin.json` packages that skill with its references, templates, and board runtime. The catalog entry in `.agents/plugins/marketplace.json` makes the plugin installable with the two commands in the README. [Factory README](../README.md#install) · [OpenAI plugin packaging guide](https://developers.openai.com/plugins/build/plugins)
+
+On Codex desktop, you can also open a clean clone as a project, restart the app, and choose **Febriy Factory** in the Plugins Directory. Install **Software Factory** and start a new chat. In the CLI, use `$software-factory:software-factory` to select the bundled skill.
+
+Use `--ref REF` on the marketplace add command to install from a branch, tag, or commit. Refresh a configured Git marketplace with `codex plugin marketplace upgrade febriy-factory`. Remove the plugin with `codex plugin remove software-factory@febriy-factory`. [Codex plugin commands](https://learn.chatgpt.com/docs/cli/reference#codex-plugin)
+
+## Standalone skill install
+
+For a Codex client without the marketplace commands, clone the repository and link the skill.
 
 ```bash
 git clone https://github.com/febriy/factory.git
 cd factory
 python3 scripts/install_factory.py
-python3 -m unittest discover -s tests -v
 ```
 
-The installer links `skills/software-factory` from this clone into `${CODEX_HOME:-~/.codex}/skills/software-factory`. Keep the clone at that location. It preserves an existing directory or different symlink rather than overwriting it; a repeated installation of the same checkout is safe. Use `--codex-home /your/codex-home` for another Codex directory. The skill is available on your next Codex turn.
-
-This installs only the factory entry point. It does not install upstream skills, configure hooks, choose a product, publish issues, change GitHub settings, or schedule jobs. Ask Codex to use `$software-factory` to plan an outcome or inspect assembly status.
+Use `$software-factory` in a new chat. The installer preserves existing skills and links to the checkout, so keep the clone in place. For a custom Codex directory, pass `--codex-home /path/to/codex`. To uninstall, remove the symlink after verifying it points to this clone. Choose one installation method to keep a single factory entry in the skill picker.
 
 ## Install engineering disciplines as needed
 
@@ -28,20 +35,10 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-installer/scripts/inst
   --path skills/engineering/code-review skills/engineering/tdd skills/engineering/diagnosing-bugs
 ```
 
-Choose other paths from the manifest as the task needs them. Inspect existing installations instead of replacing personal variants. The factory must report a missing required discipline rather than claim it was installed. Installation does not change upstream human-invocation policies.
+For a full setup, ask Codex to use `$skill-installer` to install the missing entries in `installed_upstream` from the packaged `factory/skills.lock.json` at its pinned revision. Preserve existing personal variants and upstream invocation policies.
 
-## Preview or bind a board
+## Board and harness
 
-```bash
-python3 -m factory demo
-```
+Ask the installed factory skill to preview the board. The board runs on macOS or Linux with Python 3.9+ and uses authenticated `gh` for live issues. [Board runbook](run-the-board.md)
 
-Open `.factory/demo/board.html`. To read your actual product issues, authenticate `gh` and follow [the board runbook](run-the-board.md). `febriy/factory` is the factory source repository, not an automatically selected product. Read-only board use does not require installing all engineering skills.
-
-## Harness assets and updates
-
-The template is in `skills/software-factory/assets/repo-harness`. Follow the [quality-harness reference](../skills/software-factory/references/quality-harness.md) only when product integration is requested. Copying an unconfigured template will fail checks deliberately. Existing hooks require a merge, not replacement. Review product risks, commands, policy, and hook trust before enabling anything.
-
-For reproducible use, record or check out a reviewed factory commit. Pulling this clone changes the linked factory skill; inspect changes before updating. Product harness copies stay pinned to their recorded template version and factory commit until deliberately upgraded. No auto-update runs.
-
-To remove the skill, verify that the installed `software-factory` entry is the symlink to this clone, then remove only that link. The clone and product harness copies remain intact.
+The packaged harness is a set of inactive templates. Integrate them into a product when requested. [Quality-harness reference](../skills/software-factory/references/quality-harness.md)
