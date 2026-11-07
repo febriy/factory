@@ -6,7 +6,7 @@ This first working increment reads GitHub issues, persists a JSON snapshot, and 
 
 - macOS or Linux with Python 3.9 or newer. No Python package installation is needed.
 - The GitHub CLI (`gh`) installed and authenticated for the intended target repository.
-- Run the commands from this Software Factory checkout.
+- Run the commands from the factory package root. For a plugin installation, use an explicit state directory outside the plugin cache. [Locate the board runtime](../skills/software-factory/references/board-runtime.md)
 
 ## Preview the board
 

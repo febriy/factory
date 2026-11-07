@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "software-factory",
+  "version": "0.1.0",
+  "description": "Plan, verify, and review approved engineering work with Codex.",
+  "author": {
+    "name": "febriy",
+    "url": "https://github.com/febriy"
+  },
+  "repository": "https://github.com/febriy/factory",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Software Factory",
+        "shortDescription": "Engineering workflow, quality harness templates, and an issue board.",
+        "category": "Productivity"
+      }
+    }
+  }
+}

@@ -4,22 +4,22 @@ A lightweight factory for taking approved work toward reviewed PRs, with reusabl
 
 ## Install
 
-On macOS or Linux with Python 3.9+ and Git 2.31+:
+Use the Codex CLI.
 
 ```bash
-git clone https://github.com/febriy/factory.git
-cd factory
-python3 scripts/install_factory.py
-python3 -m unittest discover -s tests -v
+codex plugin marketplace add febriy/factory
+codex plugin add software-factory@febriy-factory
 ```
 
-The installer links this checkout's `$software-factory` skill into Codex, preserving existing installations. Keep the clone in place. The skill is available on your next turn; engineering dependencies remain separate. See [installation and updates](docs/install.md) for dependency installation, custom Codex directories, removal, and version pinning.
+Start a new Codex chat and select Software Factory from the skill picker. The install guide covers the desktop picker, upstream skills, and the standalone install for older clients. [Installation and updates](docs/install.md)
 
 ## What works
 
 - A factory skill with planning, bounded execution, review, evidence, and handoff contracts.
 - Reusable, **inactive** quality-harness assets: a configurable check script, patch guard, bounded Stop hook, and protected-path diff guard. Tests exercise them in temporary repositories. They are not integrated into a product or trusted by installing the skill.
 - A Python CLI that reads GitHub issues into versioned local JSON and renders a self-contained HTML board, preserving cached data after failed reads.
+
+Run the demo from a factory source checkout.
 
 ```bash
 python3 -m factory demo
