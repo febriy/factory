@@ -1,8 +1,10 @@
 # Project navigation
 
-For factory composition and upstream integration decisions, read `docs/skill-assembly.md`.
-For quality-harness changes, read `docs/harness-design.md` and `skills/software-factory/references/quality-harness.md`. Templates stay inactive until product integration is requested.
-For tracker binding, triage labels, and domain documentation conventions, read `docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md`, and `docs/agents/domain.md` when the task uses them.
-For the factory workflow, use `skills/software-factory/SKILL.md`. Installed engineering skills retain their upstream invocation policies.
-The implementation status in `README.md` distinguishes installed skills from factory runtime software that has not yet been built.
-For the read-only board CLI, file format, and recovery behavior, read `docs/run-the-board.md`. Run meaningful checks with `python3 -m unittest discover -s tests -v`.
+This repo is a personal, invokable skill collection for taking a feature from idea to reviewed code. It is not an autonomous controller.
+
+- **The development process, stage by stage:** [`README.md`](README.md).
+- **The manifest** (per-stage pick, disposition, output, source): [`MANIFEST.md`](MANIFEST.md) — the control surface; change a choice here.
+- **Attribution:** [`CREDITS.md`](CREDITS.md).
+- **The one skill built here:** [`skills/design-docs/SKILL.md`](skills/design-docs/SKILL.md) — writes `system-design.md` before any code.
+
+Every other stage references an existing skill (mine, Matt Pocock's, or Kun Chen's), installed via the `npx skills` CLI and pinned in a lockfile. Nothing installed on the machine is renamed or removed by this repo; the naming plan in `MANIFEST.md` is applied later, by hand.
