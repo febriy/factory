@@ -1,36 +1,43 @@
 # Manifest
 
-The control surface for my skill collection. One row per stage: the pick, how I use it, the source to credit, and the artifact it outputs. Changing my mind is a one-line edit here.
+One row per stage: the skill, where it comes from, and the artifact it outputs. Each output is the next stage's input. Edit a row to change a choice.
 
-Dispositions: **Use** (reference an existing skill as-is) · **Adapt** (thin change over an existing one) · **Own** (I build it — a real gap) · **Ref** (reference with credit; I don't own it).
+| # | Stage | Skill | From | Output → next |
+|---|-------|-------|------|----------------|
+| 0 | Standing rules | `PRODUCT.md` + `domain-modeling` glossary | impeccable · Matt Pocock | `CLAUDE.md` · `PRODUCT.md` · `CONTEXT.md` |
+| 1 | Shape the idea | `grill-me` | Matt Pocock | sharpened problem + go/no-go |
+| 2 | Write the spec | `bdd-spec-writer` (+ `impeccable` UI) | me · impeccable | `.feature` → `specs/features/` |
+| 2a | Write the user story | `user-story-writer` | me | user story (What / AC) |
+| 3 | Design the system | `design-docs` | me | `system-design.md` — contracts + data model |
+| 4 | Design the code | `design-docs` (same) | me | `system-design.md` — + signatures |
+| 5 | Slice into tasks | `user-story-splitter` | me | vertical slices |
+| 6 | Build | `story-to-mr` | me | committed code + tests |
+| 7 | Review | `no-mistakes` | Kun Chen | reviewed, draft PR |
 
-| # | Stage | Disposition | Skill | Output → next | Source / credit |
-|---|-------|-------------|-------|----------------|------------------|
-| 0 | Standing rules | Adapt | `PRODUCT.md` (impeccable) + `domain-modeling` glossary | `CLAUDE.md` · `PRODUCT.md` · `CONTEXT.md` | impeccable · Pocock · Spec Kit constitution |
-| 1 | Shape the idea | Ref | `grill-me` | sharpened problem + go/no-go | Matt Pocock |
-| 2 | Write the spec | Use | `bdd-spec-writer` (+ `impeccable` UI) | `.feature` + mockups → `specs/features/` | mine · impeccable |
-| 2a | Write the user story | Use | `user-story-writer` | user story (What / AC) | mine |
-| 3 | Design the system | Own | `design-docs` | `system-design.md` — contracts + data model | this repo (handbook · wsff · Kiro · Spec Kit) |
-| 4 | Design the code | Own | `design-docs` (same) | `system-design.md` — + signatures | this repo (handbook · codebase-design) |
-| 5 | Slice into tasks | Use | `user-story-splitter` | vertical slices (tickets) | mine · (or `to-tickets`, Pocock) |
-| 6 | Build | Adapt | `build` (= `story-to-mr`) | committed code + tests | mine (uses `tdd`, Pocock) |
-| 7 | Review | Ref | `no-mistakes` | reviewed, draft PR | Kun Chen |
+Stages 3 and 4 share one output (`system-design.md`), so they're one skill.
 
-Stages 3 and 4 share one output (`system-design.md`), so they are one skill.
+## Install
 
-## Substrate (under every stage — adopt as needed, not per-feature skills)
+Everything installs through the `skills` CLI (vercel-labs), which targets Claude Code and Codex and pins versions in a lockfile:
 
-| Concern | Tool | Note |
-|---------|------|------|
-| Distribution & agility | `npx skills` (vercel-labs) | installs each row from its source; pins in a lockfile |
-| Review surface | `lavish` (Kun) / Claude artifacts | review HTML / diagram artifacts |
-| Worktrees | `treehouse` (Kun) / local `.worktrees/` | if running parallel sessions |
-| Autonomy — out of this repo | `firstmate`, `gnhf` (Kun) | the overnight / crew path; hand off, don't absorb |
+```bash
+npx skills add mattpocock/skills --skill grill-me
+npx skills add kunchenguid/no-mistakes
+npx skills add febriy/factory --skill design-docs
+```
 
-## Naming plan (apply during the later global-skills curation)
+My own Panopticon skills are installed locally; packaging them as sources is pending.
 
-Invoke each stage as a plain verb. For skills I own, this is a rename; for skills I don't, keep the upstream name or add a thin alias.
+## Substrate
 
-`grill` → grill-me (Pocock, keep) · `spec` → bdd-spec-writer · `story` → user-story-writer · `design` → design-docs · `slice` → user-story-splitter · `build` → story-to-mr · `review` → no-mistakes (Kun, keep)
+Runs under every stage; adopt as needed, not a per-feature skill.
 
-Nothing installed is renamed yet — this manifest only records the intent.
+| Concern | Tool |
+|---------|------|
+| Install & pin skills | `skills` CLI (vercel-labs) |
+| Review artifacts | Claude artifacts / an HTML review tool |
+| Isolated worktrees | git worktrees |
+
+## Naming
+
+Each stage is invoked as a plain verb: `grill · spec · story · design · slice · build · review`. For my own skills this is a rename; for others, keep the upstream name or add a thin alias.
