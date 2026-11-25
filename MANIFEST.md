@@ -16,6 +16,8 @@ One row per stage: the skill, where it comes from, and the artifact it outputs. 
 
 Stages 3 and 4 share one output (`system-design.md`), so they're one skill.
 
+The [factory-workflow skill](skills/factory-workflow/SKILL.md) coordinates the stages, including separate builder and reviewer handoffs.
+
 ## Install
 
 Everything installs through the `skills` CLI (vercel-labs), which targets Claude Code and Codex and pins versions in a lockfile:
@@ -24,6 +26,7 @@ Everything installs through the `skills` CLI (vercel-labs), which targets Claude
 npx skills add mattpocock/skills --skill grill-me
 npx skills add kunchenguid/no-mistakes
 npx skills add febriy/factory --skill design-docs
+npx skills add febriy/factory --skill factory-workflow
 ```
 
 My own Panopticon skills are installed locally; packaging them as sources is pending.

@@ -3,7 +3,7 @@
 An invokable set of skills that takes a feature from **idea to reviewed code**. Each stage is one skill I call; each stage's output is the next stage's input. Some skills are mine; some are other people's, referenced with credit.
 
 ```
-idea → spec → user story → system design → slice → build → review
+idea → spec → user story → system design → code design → slice → build → review
 ```
 
 ## The stages
@@ -14,12 +14,15 @@ idea → spec → user story → system design → slice → build → review
 | 1 | Shape the idea | `grill-me` | Matt Pocock | a sharpened problem + go/no-go |
 | 2 | Write the spec | `bdd-spec-writer` (+ `impeccable` for UI) | me · impeccable | a `.feature` file → `specs/features/…` |
 | 2a | Write the user story | `user-story-writer` | me | a user story (What / AC) |
-| 3–4 | Design the system + code | `design-docs` | me | `.pipeline/system-design.md` — contracts, data model, signatures |
+| 3 | Design the system | `design-docs` | me | Contracts and data model |
+| 4 | Design the code | `design-docs` | me | Module boundaries and function signatures |
 | 5 | Slice into tasks | `user-story-splitter` | me | thin vertical slices |
 | 6 | Build | `story-to-mr` | me | committed code + passing tests |
 | 7 | Review | `no-mistakes` | Kun Chen | a reviewed, draft PR |
 
 Stages 3 and 4 share one output (`system-design.md`), so they're one skill: decide the shape — contracts, data model, function signatures — before writing code.
+
+Invoke [factory-workflow](skills/factory-workflow/SKILL.md) to resume a feature. At the build stage, a fresh builder receives the story, software design and slice boundary. At review, a separate agent receives the committed revision and original BDD scenarios and checks the behaviour independently.
 
 ## Mine
 
@@ -43,6 +46,7 @@ Skills install through the open skills CLI, which targets Claude Code and Codex 
 npx skills add mattpocock/skills --skill grill-me
 npx skills add kunchenguid/no-mistakes
 npx skills add febriy/factory --skill design-docs
+npx skills add febriy/factory --skill factory-workflow
 ```
 
 ## Software factory
