@@ -15,7 +15,7 @@ One row per stage: the skill, where it comes from, and the artifact it outputs. 
 | 6 | Build | `story-to-mr` | me | committed code + tests |
 | 7 | Review | `no-mistakes` | Kun Chen | reviewed, draft PR |
 
-Stages 3 and 4 share one output (`system-design.md`), so they're one skill. Stage 4a automatically uses a fresh independent subagent to review that artifact, then routes routine technical fixes and re-reviews before human approval and slicing. The user sees a concise decision brief with engineering terms and attributed reading pointers, not raw review findings. A materially changed design needs a fresh review.
+Stages 3 and 4 share one output (`system-design.md`), so they're one skill. Stage 4a automatically uses a fresh independent subagent to review that artifact, then routes routine technical fixes and re-reviews before human approval and slicing. The user sees a concise decision brief with engineering terms and attributed reading pointers, not raw review findings, plus a separate one- or two-item Engineering lessons section grounded in verified corrections or existing design strengths. Lessons do not require approval. A materially changed design needs a fresh review.
 
 The [factory-workflow skill](skills/factory-workflow/SKILL.md) coordinates the stages, including separate design reviewer, builder and implementation reviewer handoffs.
 
