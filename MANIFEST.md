@@ -10,11 +10,12 @@ One row per stage: the skill, where it comes from, and the artifact it outputs. 
 | 2a | Write the user story | `user-story-writer` | me | user story (What / AC) |
 | 3 | Design the system | `design-docs` | me | `system-design.md` — contracts + data model |
 | 4 | Design the code | `design-docs` (same) | me | `system-design.md` — + signatures |
+| 4a | Review the design | `design-review` | me | `.pipeline/design-review.md` + human-approved design |
 | 5 | Slice into tasks | `user-story-splitter` | me | vertical slices |
 | 6 | Build | `story-to-mr` | me | committed code + tests |
 | 7 | Review | `no-mistakes` | Kun Chen | reviewed, draft PR |
 
-Stages 3 and 4 share one output (`system-design.md`), so they're one skill.
+Stages 3 and 4 share one output (`system-design.md`), so they're one skill. Stage 4a independently reviews that artifact before approval and slicing. A materially changed design needs a fresh review.
 
 ## Install
 
@@ -24,6 +25,7 @@ Everything installs through the `skills` CLI (vercel-labs), which targets Claude
 npx skills add mattpocock/skills --skill grill-me
 npx skills add kunchenguid/no-mistakes
 npx skills add febriy/factory --skill design-docs
+npx skills add febriy/factory --skill design-review
 ```
 
 My own Panopticon skills are installed locally; packaging them as sources is pending.
@@ -40,4 +42,4 @@ Runs under every stage; adopt as needed, not a per-feature skill.
 
 ## Naming
 
-Each stage is invoked as a plain verb: `grill · spec · story · design · slice · build · review`. For my own skills this is a rename; for others, keep the upstream name or add a thin alias.
+Each stage is invoked as a plain verb: `grill · spec · story · design · design-review · slice · build · review`. For my own skills this is a rename; for others, keep the upstream name or add a thin alias.
