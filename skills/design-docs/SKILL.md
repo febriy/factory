@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Design docs
 
-Decide the shape before you build. The cheapest place to fix a design mistake is this one file; the most expensive is merged code. Produce `.pipeline/system-design.md`, hand it off to `design-review`, and get the user's OK after review before any implementation starts.
+Decide the shape before you build. The cheapest place to fix a design mistake is this one file; the most expensive is merged code. Produce `.pipeline/system-design.md`, automatically hand it off to `design-review`, resolve routine engineering findings and get the user's OK on the reviewed design before any implementation starts. Invoking this skill includes Stage 4a; do not require a separate user invocation.
 
 Input: the feature spec (a `.feature` in `specs/features/…` and/or the user story) and `PRODUCT.md`. If there is neither a spec nor a story, ask for it — do not invent the behaviour.
 
@@ -26,9 +26,13 @@ Three load-bearing sections. Skip one only when the feature truly has no such su
 
 Optional, and only when the change crosses several services or edits a tangled existing flow: a short Mermaid **sequence diagram**, or a **call-stack tree** with `+` / `-` marks. Skip both for a straightforward feature.
 
-## 3. Handoff to design review
+## 3. Automatic review before the human gate
 
-For each section, name the one decision it forced (one attempt or many? who may read this? store or derive?). Present `system-design.md` and those decisions to the user and stop. Mark the design as pending review; dispatch `design-review` to a fresh independent subagent (or separate fresh session if subagents are unavailable); if neither is possible, stop. Do not move to slicing or the build until material findings are resolved, the review recommends approval, and the user explicitly approves the reviewed design. Record the approval in the file as specified by `design-review`. If revisions are needed, update the design and repeat the review.
+Mark the design as pending review. Without asking the user to approve the draft or invoke another skill, load the `design-review` skill and dispatch it to a fresh independent subagent (or separate fresh session if subagents are unavailable). If neither is possible, report the blocker and stop. The reviewer must receive the original requirements, current design and affected code, but not the designer's inherited conversation.
+
+Follow the review's findings: correct routine technical defects and make low-risk, evidence-supported choices within the approved requirements. Do not change product behavior, commit to new spend or accept material risk without the user's decision. Send material revisions back to a fresh reviewer. Keep the full review history in `.pipeline/design-review.md`. Default to at most two revision/re-review cycles in a single run; if a material issue persists, present the blocker rather than silently approving or looping indefinitely.
+
+Only then present the concise, concept-labelled decision brief specified by `design-review`. Do not present raw draft artifacts or the entire checklist as the default human-facing output. If a real choice is needed before approval, present the viable reviewed options and recommendation, obtain the decision, incorporate it and re-review any material changes. If no choice remains, say so and request one explicit approval of the reviewed design. Do not move to slicing or build until the final review recommends approval and the user explicitly approves that revision. Record approval as specified by `design-review`.
 
 ## Output
 
