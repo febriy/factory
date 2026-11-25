@@ -1,6 +1,6 @@
 ---
 name: design-review
-description: Automatically invoked by design-docs or factory-workflow at Stage 4a to independently critique the system and code design, resolve technical findings through the orchestrator, and prepare a concise concept-labelled human decision brief before approval and slicing.
+description: Automatically invoked by design-docs or factory-workflow at Stage 4a to independently critique the system and code design, resolve technical findings through the orchestrator, and prepare a concise concept-labelled human decision brief and engineering lessons before approval and slicing.
 ---
 
 # Design review
@@ -33,7 +33,7 @@ Use this structure:
 4. Findings in severity order: ID, severity, exact design section or file/symbol, concrete failure or maintenance cost, recommended action, alternative/trade-off, verification and relevant reference. Label optional improvements as such.
 5. Significant decisions: options, chosen recommendation, rationale, assumptions, reversal cost and reconsideration trigger.
 6. Disposition: for each finding, mark RESOLVED BY DESIGNER (after verification), ROUTINE FIX, HUMAN CHOICE, or BLOCKER. A human choice requires two or more genuinely viable options with a meaningful difference in product behavior, cost, operational burden, reversibility, risk tolerance or strategic constraints; do not escalate routine technical correctness or fabricate choices.
-7. Human briefing: use the format below, linking only actual unresolved choices and blockers. Keep earlier review rounds and findings in the artifact; summarize rather than erase them.
+7. Human briefing: use the format below, linking actual unresolved choices and blockers, followed by a separate Engineering lessons section. Keep earlier review rounds and findings in the artifact; summarize rather than erase them.
 
 No aggregate score; a serious security, correctness or data-integrity defect cannot be averaged away. Avoid unsupported findings or pattern mandates. Highlight strengths worth preserving.
 
@@ -52,10 +52,25 @@ For each genuine human choice (usually zero to three; include all material choic
 
 Use precise concept labels rather than generic jargon. For example: deep modules and information hiding (Ousterhout); cohesion, coupling and defensive programming (McConnell); seams and characterization tests (Feathers); architecture characteristics and trade-offs (Richards/Ford); ADRs (Fowler); threat modeling and trust boundaries (OWASP); design and complexity (Google Engineering Practices). Use only concepts relevant to the decision. For general database concepts, cite an appropriate source if known rather than attributing them to a book without evidence.
 
-## 5. Automatic revision loop and gate
+## 5. Engineering lessons (default, not an approval task)
+
+Include a short, separate **Engineering lessons — no decision needed** section in each final human-facing design review, even when there are no open choices. Aim for one or two high-value lessons, readable in five minutes. Derive them from actual findings that were resolved and independently re-reviewed, or from a demonstrable strength of the reviewed design if no suitable correction exists. Never manufacture a defect, claim a change was made when it was not, or repeat the decision brief unnecessarily. If the review is blocked, distinguish provisional lessons from verified resolutions.
+
+For each lesson:
+
+- **Concept and source:** use a precise engineering term from the reference guides (architecture characteristics and trade-offs, cohesion, coupling, deep modules, information hiding, seams, defensive programming, etc.). Name the author/resource and relevant chapter, section or link where known. Distinguish a reading pointer from a source actually consulted; don't invent citations.
+- **Before → after:** show the actual earlier and revised design with a tiny signature, schema, dependency sketch or explanation; cite the finding and design revision/section. If highlighting a strength instead, label it as an existing strength, not a correction.
+- **Why it matters:** explain the concrete failure, complexity or maintenance cost prevented, and the trade-off of the chosen design. Define the concept in plain English.
+- **Transferable heuristic:** give one practical question or signal the user can look for in future architecture or code designs. Explain when the heuristic would not apply, where relevant.
+
+Select lessons for transfer value, not severity alone. Prefer a mix of architecture and code-design concepts over successive features when evidence supports it; avoid gratuitous repetition. Keep lessons in the review artifact so the user can revisit earlier review rounds where available.
+
+Optionally provide one short, non-blocking judgment exercise (e.g. what would change your choice if traffic increased tenfold?). Invite the user to reason before revealing the explanation, without adding an approval requirement or delaying the gate. The goal is to help the user recognize, explain and eventually identify design issues independently, not merely memorize terminology or accept the AI's verdict. Remind the user that recommendations are review judgments, not proof of correctness.
+
+## 6. Automatic revision loop and gate
 
 The reviewer returns the verdict and findings to the orchestrator, not directly to the user as an approval request. For REVISE, the orchestrator routes routine findings to design-docs and gets a fresh independent review of material revisions. For INVESTIGATE, resolve material unknowns with available read-only evidence or a separately authorized, narrowly scoped spike. If the issue cannot be resolved within scope, escalate the actual blocker, not a false choice. Default to two revision/re-review cycles per run, then report unresolved blockers and stop. The reviewer never edits the design itself or marks its own findings resolved without evidence from the revised design.
 
-Present the decision brief only after routine issues are resolved or genuinely blocked. When a choice is required, obtain the user's decision and re-review any material changes before final approval. For APPROVE, request explicit human approval and record it in .pipeline/system-design.md with the reviewed revision, review path and accepted residual risks. Do not advance to slicing until approved. Material design changes invalidate the previous review and approval. Never offer approval of a design with unresolved material defects or uncertainties.
+Present the decision brief and separate engineering lessons only after routine issues are resolved or genuinely blocked. Lessons never require sign-off. When a choice is required, obtain the user's decision and re-review any material changes before final approval. For APPROVE, request explicit human approval and record it in .pipeline/system-design.md with the reviewed revision, review path and accepted residual risks. Do not advance to slicing until approved. Material design changes invalidate the previous review and approval. Never offer approval of a design with unresolved material defects or uncertainties.
 
 Stage 7 still reviews implemented code; this gate does not replace it.
