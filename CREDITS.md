@@ -14,9 +14,11 @@ This collection uses skills other people built. Credit where it's due.
 
 ## Mine
 
-- `design-docs` — in this repo.
+- `design-docs` and `design-review` — in this repo.
 - `story-to-mr`, `bdd-spec-writer`, `user-story-writer`, `user-story-splitter` — authored for the Panopticon / Lumino codebase.
 
 ## Methodology
 
 The `design-docs` approach follows a design-first planning flow (problem → spec → system design → code), cross-checked against GitHub Spec Kit, Amazon Kiro, and Harper Reed's LLM codegen workflow, with the deep-module framing from Matt Pocock's `codebase-design`.
+
+The `design-review` reading guides are original review questions and examples inspired by Steve McConnell (*Code Complete*), John Ousterhout (*A Philosophy of Software Design*), Michael Feathers (*Working Effectively with Legacy Code*), Mark Richards and Neal Ford (*Fundamentals of Software Architecture*), Google Engineering Practices, Martin Fowler's ADR guidance, OWASP and Microsoft's Azure Architecture Center. See the [reference guides](skills/design-review/references/) for reading pointers. No book text is included.
