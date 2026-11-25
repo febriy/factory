@@ -1,12 +1,12 @@
 ---
 name: design-docs
-description: Before any code, write the system and program design for a feature — endpoint contracts, the data model, and key function signatures — into .pipeline/system-design.md, grounded in the spec and PRODUCT.md, with a human OK gate. Use after the spec / user story and before the build.
+description: Before any code, write the system and program design for a feature — endpoint contracts, the data model, and key function signatures — into .pipeline/system-design.md, grounded in the spec and PRODUCT.md, for independent design review and a human OK gate. Use after the spec / user story and before the build.
 disable-model-invocation: true
 ---
 
 # Design docs
 
-Decide the shape before you build. The cheapest place to fix a design mistake is this one file; the most expensive is merged code. Produce `.pipeline/system-design.md` and get the user's OK before any implementation starts.
+Decide the shape before you build. The cheapest place to fix a design mistake is this one file; the most expensive is merged code. Produce `.pipeline/system-design.md`, hand it off to `design-review`, and get the user's OK after review before any implementation starts.
 
 Input: the feature spec (a `.feature` in `specs/features/…` and/or the user story) and `PRODUCT.md`. If there is neither a spec nor a story, ask for it — do not invent the behaviour.
 
@@ -26,13 +26,13 @@ Three load-bearing sections. Skip one only when the feature truly has no such su
 
 Optional, and only when the change crosses several services or edits a tangled existing flow: a short Mermaid **sequence diagram**, or a **call-stack tree** with `+` / `-` marks. Skip both for a straightforward feature.
 
-## 3. The decision gate
+## 3. Handoff to design review
 
-For each section, name the one decision it forced (one attempt or many? who may read this? store or derive?). Present `system-design.md` and those decisions to the user and stop. Do not move to slicing or the build until the user approves. Record the approval in the file.
+For each section, name the one decision it forced (one attempt or many? who may read this? store or derive?). Present `system-design.md` and those decisions to the user and stop. Mark the design as pending review; invoke `design-review` separately (preferably in a fresh context). Do not move to slicing or the build until material findings are resolved, the review recommends approval, and the user explicitly approves the reviewed design. Record the approval in the file as specified by `design-review`. If revisions are needed, update the design and repeat the review.
 
 ## Output
 
-`.pipeline/system-design.md` — the input to slicing and to `build` (`story-to-mr`), read alongside the spec. It is deliberately code-shaped but is not code: no file bodies, no implementation.
+`.pipeline/system-design.md` — the input to `design-review` and, once reviewed and approved, to slicing and to `build` (`story-to-mr`), read alongside the spec. It is deliberately code-shaped but is not code: no file bodies, no implementation.
 
 ---
 
