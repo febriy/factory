@@ -21,7 +21,7 @@ idea → spec → user story → system design → code design → design review
 | 6 | Build | `story-to-mr` | me | committed code + passing tests |
 | 7 | Review | `no-mistakes` | Kun Chen | a reviewed, draft PR |
 
-Stages 3 and 4 share one output (`system-design.md`), so they're one skill: decide the shape — contracts, data model, function signatures — before writing code. Dispatch `design-review` to a fresh, independent subagent (or a separate fresh session if subagents are unavailable), resolve material findings, and obtain human approval before slicing.
+Stages 3 and 4 share one output (`system-design.md`), so they're one skill: decide the shape — contracts, data model, function signatures — before writing code. Stage 4a runs automatically within the design invocation: dispatch `design-review` to a fresh independent subagent (or a separate fresh session if subagents are unavailable), fix routine technical findings and re-review material revisions before presenting a concise, concept-labelled decision brief. Only genuine trade-offs and material blockers are escalated; if there are none, request explicit approval of the reviewed revision before slicing. The full review remains available for inspection.
 
 Invoke [factory-workflow](skills/factory-workflow/SKILL.md) to resume a feature. The design reviewer, builder and implementation reviewer each use separate fresh contexts. The design reviewer receives the original requirements and proposed design; the builder receives the approved story, design and slice boundary; the implementation reviewer receives the committed revision and original BDD scenarios.
 
