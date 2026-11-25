@@ -15,7 +15,9 @@ One row per stage: the skill, where it comes from, and the artifact it outputs. 
 | 6 | Build | `story-to-mr` | me | committed code + tests |
 | 7 | Review | `no-mistakes` | Kun Chen | reviewed, draft PR |
 
-Stages 3 and 4 share one output (`system-design.md`), so they're one skill. Stage 4a independently reviews that artifact before approval and slicing. A materially changed design needs a fresh review.
+Stages 3 and 4 share one output (`system-design.md`), so they're one skill. Stage 4a uses a fresh, independent subagent to review that artifact before approval and slicing. A materially changed design needs a fresh review.
+
+The [factory-workflow skill](skills/factory-workflow/SKILL.md) coordinates the stages, including separate design reviewer, builder and implementation reviewer handoffs.
 
 ## Install
 
@@ -26,6 +28,7 @@ npx skills add mattpocock/skills --skill grill-me
 npx skills add kunchenguid/no-mistakes
 npx skills add febriy/factory --skill design-docs
 npx skills add febriy/factory --skill design-review
+npx skills add febriy/factory --skill factory-workflow
 ```
 
 My own Panopticon skills are installed locally; packaging them as sources is pending.

@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Design review
 
-Review the proposed design, not its author's confidence. The goal is the simplest sufficient design and a human who understands the trade-offs. Run in a fresh agent context when available; otherwise disclose that the review is not independent. Do not implement code, silently rewrite the design, or approve on the user's behalf.
+Review the proposed design, not its author's confidence. The goal is the simplest sufficient design and a human who understands the trade-offs. The orchestrator must dispatch a fresh reviewer subagent, without the designer's inherited conversation or hidden reasoning. If subagents are unavailable, use a separate fresh session. If neither is possible, report INVESTIGATE and stop; self-review is not an independent gate. The reviewer receives the original requirements, proposed design and affected code, not the designer's conversational rationale. Record the actual context and any prior exposure. Do not implement code, silently rewrite the design, or approve on the user's behalf.
 
 ## 1. Gather evidence
 

@@ -28,7 +28,7 @@ Optional, and only when the change crosses several services or edits a tangled e
 
 ## 3. Handoff to design review
 
-For each section, name the one decision it forced (one attempt or many? who may read this? store or derive?). Present `system-design.md` and those decisions to the user and stop. Mark the design as pending review; invoke `design-review` separately (preferably in a fresh context). Do not move to slicing or the build until material findings are resolved, the review recommends approval, and the user explicitly approves the reviewed design. Record the approval in the file as specified by `design-review`. If revisions are needed, update the design and repeat the review.
+For each section, name the one decision it forced (one attempt or many? who may read this? store or derive?). Present `system-design.md` and those decisions to the user and stop. Mark the design as pending review; dispatch `design-review` to a fresh independent subagent (or separate fresh session if subagents are unavailable); if neither is possible, stop. Do not move to slicing or the build until material findings are resolved, the review recommends approval, and the user explicitly approves the reviewed design. Record the approval in the file as specified by `design-review`. If revisions are needed, update the design and repeat the review.
 
 ## Output
 
